@@ -3,10 +3,10 @@ import usersSlice from "../users/usersSlice"
 const FetchedUsers = () =>{
 const {users,isLoading,error} = useSelector((store) =>store.users)
 if(isLoading){
-    <div>Loading...</div>
+   return <div>Loading...</div>
 } 
 if(error){
-    <div>An error occured...XXX...</div>
+    return <div>An error occured...XXX...</div>
 } 
 
 return (
