@@ -1,7 +1,15 @@
-import { useSelector } from "react-redux"
-import usersSlice from "../users/usersSlice"
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux"
+import { fetcher } from "../users/usersSlice";
+
 const FetchedUsers = () =>{
+    const dispatch = useDispatch();
+
+    useEffect(()=>{
+        dispatch(fetcher())
+    },[dispatch])
 const {users,isLoading,error} = useSelector((store) =>store.users)
+console.log(users);
 if(isLoading){
    return <div>Loading...</div>
 } 
@@ -9,18 +17,18 @@ if(error){
     return <div>An error occured...XXX...</div>
 } 
 
-return (
+if(users.results){return (
     <div>
         <ul>
-        {users.map((users)=>{ 
-            return <li key={Math.random}>{users.firstname} aka {users.lastname}</li>
+        {users.results.map((user)=>{ 
+            return <li key={Math.random()}>{user.name.first} aka {user.name.last}</li>
 
             })}
 
         </ul>
             
     </div>
-  )
+  )}
 }
 
 export default FetchedUsers ;
