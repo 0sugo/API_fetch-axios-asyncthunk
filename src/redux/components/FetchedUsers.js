@@ -9,7 +9,6 @@ const FetchedUsers = () =>{
         dispatch(fetcher())
     },[dispatch])
 const {users,isLoading,error} = useSelector((store) =>store.users)
-console.log(users);
 if(isLoading){
    return <div>Loading...</div>
 } 

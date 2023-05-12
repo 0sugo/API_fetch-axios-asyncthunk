@@ -14,10 +14,6 @@ return response.data;
 })
 const initialState ={
     users:[],
-        // {
-        //     firstname:"joseck",
-        //     lastname:"osugo",
-        // }
     isLoading:false,
     error:undefined
 }
@@ -32,7 +28,6 @@ const usersSlice = createSlice({
         .addCase(fetcher.fulfilled,(state,action)=>{
             state.isLoading = false;
             state.users= action.payload
-            console.log(state.users)
         })
         .addCase(fetcher.rejected,(state,action)=>{
             state.isLoading = false;
