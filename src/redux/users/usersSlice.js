@@ -1,7 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState ={
-    users:[],
+    users:[
+        {
+            firstname:"joseck",
+            lastname:"osugo",
+        }
+    ],
     isLoading:false,
     error:''
 }
